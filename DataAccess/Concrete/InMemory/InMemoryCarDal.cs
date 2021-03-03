@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,50 +11,29 @@ namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryCarDal : ICarDal
     {
-        List<Car> _cars;
-        public InMemoryCarDal()
+        public void Add(Car entity)
         {
-            _cars = new List<Car> { 
-                new Car{Id=1,ColorId=2,BrandId=1,ModelYear=2014,DailyPrice=390.00,Description="Reanult CLIO"},
-                new Car{Id=2,ColorId=1,BrandId=2,ModelYear=2015,DailyPrice=597.00,Description="Fiat Egea"},
-                new Car{Id=3,ColorId=2,BrandId=4,ModelYear=2018,DailyPrice=1140.00,Description="Peugeot Expert"}
-            };
-        }
-        public void Add(Car car)
-        {
-            _cars.Add(car);
+            throw new NotImplementedException();
         }
 
-        public void Delete(Car car)
+        public void Delete(Car entity)
         {
-            Car carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
-
-            _cars.Remove(carToDelete);
+            throw new NotImplementedException();
         }
 
-        public List<Car> GetAll()
+        public Car Get(Expression<Func<Car, bool>> filter)
         {
-            return _cars;
+            throw new NotImplementedException();
         }
 
-        public List<Car> GetAllByBrandId(int brandId)
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            return _cars.Where(c => c.BrandId == brandId).ToList();
+            throw new NotImplementedException();
         }
 
-        public List<Car> GetAllByColorId(int colorId)
+        public void Update(Car entity)
         {
-            return _cars.Where(c => c.ColorId == colorId).ToList();
-        }
-
-        public void Update(Car car)
-        {
-            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
-            carToUpdate.ColorId = car.ColorId;
-            carToUpdate.BrandId = car.BrandId;
-            carToUpdate.ModelYear = car.ModelYear;
-            carToUpdate.DailyPrice = car.DailyPrice;
-            carToUpdate.Description = car.Description;
+            throw new NotImplementedException();
         }
     }
 }
